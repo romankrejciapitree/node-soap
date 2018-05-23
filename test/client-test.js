@@ -588,7 +588,7 @@ var fs = require('fs'),
       before(function (done) {
         server = http.createServer(function (req, res) {
           res.statusCode = 401;
-          res.write(JSON.stringify({ tempResponse: 'temp' }), 'utf8');
+          // res.write(JSON.stringify({ tempResponse: 'temp' }), 'utf8');
           res.end();
         }).listen(port, hostname, done);
       });
@@ -605,6 +605,7 @@ var fs = require('fs'),
             assert.ok(err);
             assert.ok(err.response);
             assert.ok(err.body);
+            console.log(err);
             done();
           });
         }, baseUrl);
